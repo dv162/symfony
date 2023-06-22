@@ -1,0 +1,15 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr/>
+    <h2 class="page-header">{{ book.name }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Author ID: {{ book.authorid }}</li>
+        <li class="list-group-item">Price: {{ book.price }}</li>
+        <li class="list-group-item">Quantity: {{ book.quantity }}</li>
+        
+    </ul>
+        <a href="{{ path('book_list') }}" class="btn btn-default">Back to Book List</a>
+{% endblock %}
+

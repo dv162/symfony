@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+        <style>
+        table, th, td {border: 3px solid; text-align: center;}
+        body{
+        background-image: url("./images/1.jpg");
+    }
+        </style>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>BookId</th>
+                <th></th>
+                
+             
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in category %}
+                <tr>
+                    <th scope="row">{{ c.id }}</th>
+                    <td>{{ c.type }}</td>
+                    <td>{{ c.bookId }}</td>
+                    
+                    <td>
+                        <a href="{{ path('views_category', {'id': c.id}) }}" class='btn btn-success'>View</a> 
+                        <a href="{{ path('edit_category', {'id': c.id}) }}" class='btn btn-default'>Edit</a>
+                        <a href="{{ path('delete_category', {'id': c.id}) }}" class='btn btn-danger'>Delete</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

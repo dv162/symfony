@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(form.name,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Task name'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="authorid">Author Id:</label>
+        {{ form_widget(form.authorid,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Author Id'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        {{ form_widget(form.price,{
+            'attr':{
+                'class':'form-control',
+                'placeholder': 'Price'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        {{ form_widget(form.quantity,{
+            'attr':{
+                'class':'form-control'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="edit_book" value="Edit" class="btn btn-primary"/>
+    {{ form_end(form) }}
+
+    <a href="{{ path('book_list') }}" class="btn btn-default">Back to Book List</a>
+{% endblock %}

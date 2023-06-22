@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="bs-example" data-example-id="striped-table">
+        <table class="table table-striped">
+        <style>
+        table, th, td {border: 3px solid; text-align: center;}
+        </style>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Book Id</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for a in author %}
+                <tr>
+                    <th scope="row">{{ a.id }}</th>
+                    <td>{{ a.name }}</td>
+                    <td>{{ a.address }}</td>
+                    <td>{{ a.bookId }}</td>
+                    <td>
+                        <a href="{{ path('views_author', {'id': a.id}) }}" class='btn btn-success'>View</a> 
+                        <a href="{{ path('edit_author', {'id': a.id}) }}" class='btn btn-default'>Edit</a>
+                        <a href="{{ path('delete_author', {'id': a.id}) }}" class='btn btn-danger'>Delete</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
